@@ -1,0 +1,97 @@
+.floatingContainer {
+  width: 55vw;
+  min-height: 4rem;
+
+  position: fixed;
+  top: 0.5rem;
+  left: 22.5vw;
+
+  z-index: 1000;
+
+  background-color: #00000020;
+  backdrop-filter: blur(5px);
+  border-radius: var(--border-radius);
+
+  padding: 0 3rem;
+
+  transition: padding-bottom 0.3s ease, transform 0.2s ease;
+  cursor: default;
+
+  &:hover, 
+  &[data-closed="false"] {
+    transform: scale(1.015);
+  }
+}
+
+.headerRow {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expanded {
+  padding-bottom: 1rem;
+
+  .drawer {
+    grid-template-rows: 1fr;
+  }
+}
+
+.drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.content {
+  overflow: hidden;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+
+    .email {
+      font-size: 18px;
+      text-decoration: underline;
+      text-decoration-thickness: .5px;
+      text-underline-offset: 4px;
+    }
+    .name {
+      font-size: 24px;
+    }
+  }
+}
+
+
+// To pick up smaller portrait tablets and below
+@media (max-width: 749px) and (orientation: portrait) {
+  .floatingContainer {
+    width: calc(100vw - 1rem);
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  
+  .stack {
+    .contact {
+      .email {
+        font-size: 16px;
+      }
+      .name {
+        font-size: 20px;
+      }
+    }
+  }
+}

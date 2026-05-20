@@ -1,0 +1,127 @@
+$item-size: 12vmin;
+
+.skills {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--secondary-dark);
+  overflow: hidden;
+
+  clip-path: url(#skills-bottom-wave);
+
+  --contrast-text-color: var(--black);
+}
+
+.pageTitle {
+  font-size: 3rem;
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  overflow-y: visible;
+}
+
+.track {
+  --item-size: #{$item-size};
+  --visible-count: 5;
+  --gap: calc((100vw - var(--visible-count) * #{$item-size}) / (var(--visible-count) - 1));
+  width: 100vw;
+  height: calc(#{$item-size} * 2.5);
+  overflow-x: hidden;
+}
+
+.inner {
+  display: flex;
+  gap: var(--gap);
+  transition: transform 0.3s ease;
+  align-items: center;
+  height: 100%;
+  --focus-left: calc(((100vw - var(--center-width)) / 2) + var(--item-size) / 2);
+}
+
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+
+.item {
+  --item-border: #000;
+  width: $item-size;
+  height: $item-size;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  filter: drop-shadow(0 0 calc($item-size / 20) #00000050);
+  animation: float 5s ease-in-out infinite;
+
+  &:hover {
+    transform: scaleX(1.2);
+  }
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.itemImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: var(--center-width);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+
+  &.left {
+    left: 3rem;
+  }
+  &.right {
+    right: 3rem;
+  }
+  
+  color: #000 !important;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.sectionDivider {
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 749px) and (orientation: portrait) {
+  .controls {
+    position: absolute;
+    bottom: 5rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .arrow {
+    position: static;
+    transform: translateY(0%);
+    
+    &:hover {
+      transform: translateY(0%) scale(1.15);
+    }
+  }
+}

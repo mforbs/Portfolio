@@ -1,0 +1,76 @@
+// Styles from: https://codepen.io/alphardex/pen/jOWMGON
+
+@use '../../../functions.module.scss' as functions;
+
+$bubble-count: 20;
+
+@keyframes float-up {
+  to {
+    transform: translateY(-175vh);
+  }
+}
+
+@keyframes sway-left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sway-right-to-left {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 120vh;
+  overflow: hidden;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--secondary-darkest);
+}
+
+.bubble {
+  position: absolute;
+  left: var(--bubble-left-offset);
+  bottom: calc(-1 * var(--bubble-radius));
+  display: block;
+  width: var(--bubble-radius);
+  height: var(--bubble-radius);
+  border-radius: 50%;
+  animation: float-up var(--bubble-float-duration) var(--bubble-float-delay) ease-in infinite;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-even-darker);
+    border-radius: inherit;
+    animation: sway-left-to-right var(--bubble-sway-duration) var(--bubble-sway-delay) ease-in-out alternate infinite;
+  }
+
+  @for $i from 0 through $bubble-count {
+    &:nth-child(#{$i}) {
+      --bubble-radius: #{functions.random_range(1vw, 10vw)};
+      --bubble-left-offset: #{functions.random_range(0vw, 95vw)};
+      --bubble-float-duration: #{functions.random_range(6s, 12s)};
+      --bubble-sway-duration: #{functions.random_range(4s, 6s)};
+      --bubble-float-delay: #{functions.random_range(0s, 4s)};
+      --bubble-sway-delay: #{functions.random_range(0s, 4s)};
+    }
+  }
+}

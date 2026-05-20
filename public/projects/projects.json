@@ -1,0 +1,75 @@
+[
+  {
+    "name": "this portfolio",
+    "description": "Designed in Figma and built to accompany my CV, this portfolio showcases my work in a way that's both visually engaging and easy to navigate.",
+    "imagePath": "/projects/images/portfolio.png",
+    "imageDimensions": {
+      "width": 1065,
+      "height": 1132
+    },
+    "stack": ["typescript", "react", "next.js", "scss"]
+  },
+  {
+    "name": "fusion simulations",
+    "description": "My masters dissertation explored the scalability and correctness of advanced techniques for neutron transport simulation in fusion reactor geometries.",
+    "imagePath": "/projects/images/neutron_transport.png",
+    "imageDimensions": {
+      "width": 378,
+      "height": 337
+    },
+    "link": "/projects/files/neutron_transport.pdf",
+    "stack": ["python", "c++", "c"]
+  },
+  {
+    "name": "VIVACE",
+    "description": "Vortex Induced Vibration for Aquatic Clean Energy (VIVACE) was the focus of my undergraduate research. I simulated the system with CFD for comparison with physical results.",
+    "imagePath": "/projects/images/vivace.png",
+    "imageDimensions": {
+      "width": 693,
+      "height": 243
+    },
+    "link": "/projects/files/vivace.pdf",
+    "stack": ["python"]
+  },
+  {
+    "name": "machine learning",
+    "description": "I completed a machine learning certification with Python through freeCodeCamp. This was a precursor to recent more in depth work on object detection and classification.",
+    "imagePath": "/projects/images/machinelearning.png",
+    "imageDimensions": {
+      "width": 2048,
+      "height": 2048
+    },
+    "link": "https://www.freecodecamp.org/certification/maxforbesdev/machine-learning-with-python-v7",
+    "stack": ["python"]
+  },
+  {
+    "name": "sustainability tracking",
+    "description": "As a consultant I worked to develop a system that monitors companies' social media for sustainability metrics. It used Python to scrape socials and a .NET backend to serve the data.",
+    "imagePath": "/projects/images/sustainability.jpg",
+    "imageDimensions": {
+      "width": 1024,
+      "height": 685
+    },
+    "stack": ["python", ".net", "sql", "typescript", "scss"]
+  },
+  {
+    "name": "cyber insurance",
+    "description": "I worked in a team developing a cyber insurance platform to generate quotes for brokers. The system used a .NET backend to serve data to a React frontend, with a SQL database for storage.",
+    "imagePath": "/projects/images/cyber_insurance.jpeg",
+    "imageDimensions": {
+      "width": 1024,
+      "height": 767
+    },
+    "stack": ["react", "typescript", ".net", "sql"]
+  },
+  {
+    "name": "negotiation training",
+    "description": "I developed a negotiation competition platform for students of a negotiation course to practise with one another in front of an observer.",
+    "imagePath": "/projects/images/negotiation_training.png",
+    "imageDimensions": {
+      "width": 586,
+      "height": 423
+    },
+    "stack": ["scss", "typescript", ".net"]
+  }
+]

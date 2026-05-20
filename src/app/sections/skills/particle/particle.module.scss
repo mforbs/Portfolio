@@ -1,0 +1,42 @@
+
+@use '../../../functions.module.scss' as functions;
+
+$particle-count: 40;
+$colors: var(--secondary-darkest), var(--white);
+
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
+
+.particle {
+  width: 0.3vmin;
+  height: 2vmin;
+  border-radius: 0.15vmin;
+  position: absolute;
+  animation: move;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  background-color: var(--color);
+  opacity: var(--opacity);
+  top: var(--top);
+  left: var(--left);
+  animation-duration: var(--duration);
+  animation-delay: var(--delay);
+  transform-origin: var(--originX) var(--originY);
+
+  @for $i from 0 through $particle-count {
+    &:nth-child(#{$i}) {
+      --color: #{functions.sample($colors)};
+      --opacity: #{random()};
+      --top: #{functions.random_range(0vh, 100vh)};
+      --left: #{functions.random_range(0vw, 100vw)};
+      --duration: #{functions.random_range(30s, 60s)};
+      --delay: #{functions.random_range(-30s, 0s)};
+      --originX: #{functions.random_range(-25vw, 25vw)};
+      --originY: #{functions.random_range(-25vh, 25vh)};
+    }
+  }
+}

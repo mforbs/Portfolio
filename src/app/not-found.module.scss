@@ -1,0 +1,27 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.link {
+  margin-top: 2rem;
+  background-color: #00000020; // TODO: Move to var or class for blurry backgrounds
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  border-radius: var(--border-radius);
+  gap: 0.5rem;
+  width: fit-content;
+  text-decoration: none;
+}

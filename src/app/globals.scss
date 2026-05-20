@@ -1,0 +1,118 @@
+.funkie-filled {
+  font-family: var(--funkie-filled-family), sans-serif;
+}
+
+.funkie-outline {
+  font-family: var(--funkie-outline-family), sans-serif;
+}
+
+.dm-serif {
+  font-family: var(--dm-serif-family), serif;
+}
+
+.montserrat {
+  font-family: var(--montserrat-family), sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.primary-text {
+  color: var(--primary);
+  --font-size: 20rem;
+  --line-height: 14rem;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  overflow: hidden;
+  position: relative;
+  margin-left: -1rem;
+  padding-top: 0.5rem;
+  font-weight: 400;
+}
+
+.primary-text::after {
+  content: attr(data-after);
+  color: var(--black);
+  font-family: var(--funkie-outline-family), sans-serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  padding-top: 0.5rem;
+  letter-spacing: -0.3rem;
+  position: absolute;
+  top: -3px;
+  left: 3px;
+  -webkit-text-stroke: 0px;
+}
+
+.secondary-text {
+  color: var(--black);
+  font-size: 3.5rem;
+  width: var(--center-width);
+}
+
+.tertiary-text {
+  font-size: 1rem;
+  color: var(--grey);
+}
+
+.white {
+  color: var(--white);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --grey: #383838;
+  --primary: #4595e5;
+  --secondary-light: #d1e8ff;
+  --secondary-mid: #a5cef5;
+  --secondary-dark: #76b2ed;
+  --secondary-darkest: #0057a2;
+  --secondary-even-darker: #024682;
+  --secondary-even-darkest: #002c53;
+  --background: var(--white);
+  --foreground: var(--black);
+  --center-width: 36.5rem;
+  --default-margin: 1rem;
+  --border-radius: 1rem;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.contrast {
+  stroke: black !important;
+  stroke-width: 0.5px !important;
+
+  color: var(--contrast-text-color);
+}
+
+@media (max-width: 749px) and (orientation: portrait) {
+  :root {
+    --center-width: 18.25rem;
+    --default-margin: 0.3rem;
+  }
+
+  .primary-text {
+    --font-size: 10rem;
+    --line-height: 7rem;
+    margin-left: -0.5rem;
+  }
+
+  .secondary-text {
+    font-size: 1.8em;
+    line-height: 1.8em;
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "title": "TypeScript",
+    "description": "a typed superset of JavaScript for scalable apps.",
+    "imagePath": "/logos/typescript.svg"
+  },
+  {
+    "title": "React",
+    "description": "a component-based UI library for the web.",
+    "imagePath": "/logos/react.svg"
+  },
+  {
+    "title": "Node.js",
+    "description": "a JavaScript runtime for server-side development.",
+    "imagePath": "/logos/node.svg"
+  },
+  {
+    "title": "Python",
+    "description": "a versatile language for scripting and data work.",
+    "imagePath": "/logos/python.svg"
+  },
+  {
+    "title": "FastAPI",
+    "description": "a modern Python web framework for building APIs.",
+    "imagePath": "/logos/fastapi.svg"
+  },
+  {
+    "title": ".NET",
+    "description": "a Microsoft framework for building cross-platform apps.",
+    "imagePath": "/logos/dotnet.svg"
+  },
+  {
+    "title": "Next.js",
+    "description": "a full-stack React framework with SSR and routing.",
+    "imagePath": "/logos/next.svg"
+  },
+  {
+    "title": "PostgreSQL",
+    "description": "a powerful open-source relational database.",
+    "imagePath": "/logos/postgres.svg"
+  },
+  {
+    "title": "Google Cloud Platform",
+    "description": "a suite of cloud computing services by Google.",
+    "imagePath": "/logos/gcp.svg"
+  },
+  {
+    "title": "Microsoft Azure",
+    "description": "a suite of cloud computing services by Microsoft.",
+    "imagePath": "/logos/azure.svg"
+  },
+  {
+    "title": "Docker",
+    "description": "a containerisation platform for consistent deployments.",
+    "imagePath": "/logos/docker.svg"
+  },
+  {
+    "title": "Git",
+    "description": "a version control for tracking and collaborating on code.",
+    "imagePath": "/logos/git.svg"
+  },
+  {
+    "title": "SCSS",
+    "description": "a CSS preprocessor with variables and nesting.",
+    "imagePath": "/logos/scss.svg"
+  }
+]

@@ -1,0 +1,62 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--secondary-even-darkest);
+  color: var(--background);
+}
+
+.name {
+    font-size: 56px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email {
+  color: var(--background);
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.4rem;
+
+  a {
+    color: var(--background);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.copy {
+  font-size: 0.75rem;
+  opacity: 0.4;
+}
+
+
+
+
+@media (max-width: 749px) and (orientation: portrait) {
+  .footer {
+      gap: 0rem 1rem;
+      flex-wrap: wrap;
+  }
+}

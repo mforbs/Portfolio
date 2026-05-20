@@ -1,0 +1,30 @@
+
+.link {
+    font-size: 28px;
+    height: 34px;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+
+    background: linear-gradient(currentColor 0 0) 
+        bottom right/
+        var(--underline-width, 0%) 1px
+        no-repeat;
+    background-position-y: 33px;
+    display: inline-block;
+    padding: 0 0 1em;
+    text-decoration: none;
+    transition: background-size 0.5s;
+    
+    &:hover {
+        --underline-width: 100%;
+    }
+}
+
+// To pick up smaller portrait tablets and below
+@media (max-width: 749px) and (orientation: portrait) {
+  .link {
+    font-size: 24px;
+    height: 28px;
+  }
+}

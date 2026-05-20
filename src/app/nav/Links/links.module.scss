@@ -1,0 +1,49 @@
+.stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+
+    .iconContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            &:hover {
+                &.square {
+                    &::before {
+                        border-radius: 3px;
+                    }
+                }
+                &.round {
+                    &::before {
+                        border-radius: 50%;
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 26px;
+                    height: 26px;
+                    border: 1px solid currentColor;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.openCollapseToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    border: 0px solid transparent;
+    background-color: transparent;
+
+    min-height: 1.5rem;
+    min-width: 2rem;
+    height: 1.5rem;
+    width: 2rem;
+
+    cursor: pointer;
+
+    &:hover,
+    &.navHovered {
+        .toggleRow {
+            &::before {
+                transform: rotate(calc(var(--open-factor) * -30deg)) translateX(2px);
+            }
+
+            &::after {
+                transform: rotate(calc(var(--open-factor) * 30deg)) translateX(-2px);
+            }
+        }
+    }
+    
+    .toggleRow {
+        content: "";
+        min-height: 3px;
+        min-width: 2rem;
+        height: 3px;
+        width: 32px;
+        
+        display: flex;
+        align-items: center;
+
+        color: inherit;
+    
+        &::before, &::after {
+            content: "";
+            border-bottom: 3px solid currentColor;
+            width: 1rem;
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+}
