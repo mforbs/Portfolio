@@ -23,12 +23,12 @@
   {
     "name": "VIVACE",
     "description": "Vortex Induced Vibration for Aquatic Clean Energy (VIVACE) was the focus of my undergraduate research. I simulated the system with CFD for comparison with physical results.",
-    "imagePath": "./projects/images/vivace.png",
+    "imagePath": "./projects/images/Vivace.png",
     "imageDimensions": {
       "width": 693,
       "height": 243
     },
-    "link": "./projects/files/vivace.pdf",
+    "link": "./projects/files/VIVACE.pdf",
     "stack": ["python"]
   },
   {
