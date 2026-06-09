@@ -1,9 +1,12 @@
+@use 'sass:math';
+@use 'sass:list';
+
 @function random_range($min, $max) {
   $rand: random();
-  $random_range: $min + floor($rand * (($max - $min) + 1));
+  $random_range: $min + math.floor($rand * (($max - $min) + 1));
   @return $random_range;
 }
 
 @function sample($list) {
-  @return nth($list, random(length($list)));
+  @return nth($list, math.random(list.length($list)));
 }
