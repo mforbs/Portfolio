@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 const Particle = dynamic(() => import("./particle/particle"), { ssr: false });
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./skills.module.scss";
 import SKILLS from "../../../../public/skills.json";
 import Arrow from "@/app/shared/arrow/arrow";
@@ -39,6 +39,37 @@ export default function Skills() {
     setIndex((i) => i + dir);
   };
 
+  const touchStartX = useRef<number | null>(null);
+  const touchStartIndex = useRef(FIRST_REAL);
+  const [swipeOffset, setSwipeOffset] = useState(0);
+
+  const getStep = () => {
+    const itemPx = 0.12 * Math.min(window.innerWidth, window.innerHeight);
+    const gapPx = (window.innerWidth - visible * itemPx) / (visible - 1);
+    return itemPx + gapPx;
+  };
+
+  const fractionalIndex =
+    swipeOffset !== 0 ? touchStartIndex.current - swipeOffset / getStep() : index;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartIndex.current = index;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    setSwipeOffset(e.touches[0].clientX - touchStartX.current);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null) return;
+    const snapped = Math.round(fractionalIndex);
+    setSwipeOffset(0);
+    setIndex(snapped);
+    touchStartX.current = null;
+  };
+
   const handleTransitionEnd = () => {
     if (index > LAST_REAL) {
       setJumping(true);
@@ -56,11 +87,15 @@ export default function Skills() {
   };
 
   const getScale = (i: number) => {
-    const distance = Math.abs(i - index);
+    const distance = Math.abs(i - fractionalIndex);
     return Math.max(0.5, 2 - distance * 1.2);
   };
 
-  const active = paddedItems[index];
+  const displayIndex = Math.max(
+    0,
+    Math.min(paddedItems.length - 1, Math.round(fractionalIndex)),
+  );
+  const active = paddedItems[displayIndex];
 
   return (
     <section id="skills-page" className={`page dark ${styles.skills}`}>
@@ -87,7 +122,7 @@ export default function Skills() {
         <Particle key={i} />
       ))}
       <span className={`dm-serif secondary-text`}>i'm familiar with</span>
-      <div className={styles.carousel}>
+      <div className={styles.carousel} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
         <div
           className={styles.track}
           style={{ "--visible-count": visible } as React.CSSProperties}
@@ -95,8 +130,8 @@ export default function Skills() {
           <div
             className={styles.inner}
             style={{
-              transform: `translateX(calc(var(--focus-left) - ${index} * (var(--item-size) + var(--gap))))`,
-              transition: jumping ? "none" : undefined,
+              transform: `translateX(calc(var(--focus-left) - ${fractionalIndex} * (var(--item-size) + var(--gap))))`,
+              transition: jumping || swipeOffset !== 0 ? "none" : undefined,
             }}
             onTransitionEnd={handleTransitionEnd}
           >

@@ -60,7 +60,7 @@ $item-size: 12vmin;
   align-items: center;
   justify-content: center;
 
-  filter: drop-shadow(0 0 calc($item-size / 20) #00000050);
+  filter: drop-shadow(0 0 calc($item-size / 25) #ffffff30);
   animation: float 5s ease-in-out infinite;
 
   &:hover {
