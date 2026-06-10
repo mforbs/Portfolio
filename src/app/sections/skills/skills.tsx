@@ -50,7 +50,9 @@ export default function Skills() {
   };
 
   const fractionalIndex =
-    swipeOffset !== 0 ? touchStartIndex.current - swipeOffset / getStep() : index;
+    swipeOffset !== 0
+      ? touchStartIndex.current - swipeOffset / getStep()
+      : index;
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -88,7 +90,7 @@ export default function Skills() {
 
   const getScale = (i: number) => {
     const distance = Math.abs(i - fractionalIndex);
-    return Math.max(0.5, 2 - distance * 1.2);
+    return Math.max(0.25, 1 - distance * 0.6);
   };
 
   const displayIndex = Math.max(
@@ -122,7 +124,12 @@ export default function Skills() {
         <Particle key={i} />
       ))}
       <span className={`dm-serif secondary-text`}>i'm familiar with</span>
-      <div className={styles.carousel} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+      <div
+        className={styles.carousel}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           className={styles.track}
           style={{ "--visible-count": visible } as React.CSSProperties}
@@ -142,7 +149,7 @@ export default function Skills() {
                 style={{
                   transform: `scale(${getScale(i)})`,
                   transition: jumping ? "none" : undefined,
-                  opacity: getScale(i) / 2,
+                  opacity: getScale(i),
                   animationDelay: `${(i % visible) * -0.6}s`,
                 }}
               >
@@ -151,8 +158,8 @@ export default function Skills() {
                     src={item.imagePath}
                     alt={item.title}
                     className={styles.itemImage}
-                    width={24}
-                    height={24}
+                    width={256}
+                    height={256}
                   />
                 )}
               </div>

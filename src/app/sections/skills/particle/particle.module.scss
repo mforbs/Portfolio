@@ -1,5 +1,6 @@
 
 @use '../../../functions.module.scss' as functions;
+@use 'sass:math';
 
 $particle-count: 40;
 $colors: var(--secondary-darkest), var(--white);
@@ -30,7 +31,7 @@ $colors: var(--secondary-darkest), var(--white);
   @for $i from 0 through $particle-count {
     &:nth-child(#{$i}) {
       --color: #{functions.sample($colors)};
-      --opacity: #{random()};
+      --opacity: #{math.random()};
       --top: #{functions.random_range(0vh, 100vh)};
       --left: #{functions.random_range(0vw, 100vw)};
       --duration: #{functions.random_range(30s, 60s)};
