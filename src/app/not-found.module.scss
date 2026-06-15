@@ -14,7 +14,7 @@
 
 .link {
   margin-top: 2rem;
-  background-color: #00000020; // TODO: Move to var or class for blurry backgrounds
+  background-color: var(--black-transparent);
   height: 3rem;
   display: flex;
   align-items: center;

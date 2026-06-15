@@ -1,6 +1,6 @@
 
 .arrow {
-  background-color: #00000020; // TODO: Move to var or class for blurry backgrounds
+  background-color: var(--black-transparent);
   backdrop-filter: blur(5px);
   height: 3rem;
   width: 3rem;
